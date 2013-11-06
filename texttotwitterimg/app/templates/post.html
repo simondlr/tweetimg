@@ -3,6 +3,10 @@
 {% block content %}
 Say more. Enter the text here (go crazy. Go over 140!) *current version strips text at 214px height. So about 5 times normal tweet limit. <br />
 <br />
+{% if posted == 'true' %}
+The image tweet was successfully sent! Post another one.<br />
+<br />
+{% endif %}
 <form action="/post" method="post">
 {% csrf_token %}
 <input type='textfield' class="form-control" name='text' id='text' /><br />

@@ -52,17 +52,14 @@ def post(request):
             offset += font.getsize(line)[1]
 
         file_name = "%s/temp%s.png" % (SITE_ROOT,time.time())
-        #img.save("temp%s.png" % time.time())
-        #image_io = StringIO.StringIO()
-        #img.save(image_io,format='PNG')
         img.save(file_name)
-        #image_io.seek(0)
 
         photo = open(file_name, 'rb')
 
         t_api = Twython(settings.TWITTER_KEY,settings.TWITTER_SECRET,request.session['OAUTH_TOKEN'],request.session['OAUTH_TOKEN_SECRET'])
         t_api.update_status_with_media(media=photo,status='')
 
+        posted = 'true'
         return render(request,'post.html',locals())
     elif 'OAUTH_TOKEN' in request.session:
         #display form
