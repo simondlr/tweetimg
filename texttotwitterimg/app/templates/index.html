@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 {% block content %}
 Since Twitter automatically shows images by default: send text as images. Go over 140 characters.<br />
 <br />
-<a href="{{a_url}}">Sign in with Twitter</a>
+<a href="{{a_url}}"><img src="{% static 'twitter_sign_in.png' %}"></a>
 {% endblock %}
