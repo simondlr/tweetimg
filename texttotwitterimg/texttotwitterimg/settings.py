@@ -168,6 +168,7 @@ LOGGING = {
 #environment settings
 ENV = os.environ.get('ENV',None)
 if ENV == 'PRODUCTION':
+    print 'prod'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_KEY')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET')
     AWS_PRELOAD_METADATA = True
