@@ -8,6 +8,9 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+SESSION_COOKIE_AGE = 172800
+PREPEND_WWW = True #quick hack for sessions.
+
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -184,7 +187,6 @@ if ENV == 'PRODUCTION':
     import dj_database_url
     DATABASES['default'] = dj_database_url.config()
 
-    SESSION_COOKIE_DOMAIN = '*.tweetimg.com'
 else:
     TWITTER_KEY = os.environ.get('TWITTER_KEY_LOCAL')
     TWITTER_SECRET = os.environ.get('TWITTER_SECRET_LOCAL')
