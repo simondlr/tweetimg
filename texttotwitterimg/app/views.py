@@ -4,4 +4,4 @@ from django.shortcuts import render
 from boto.s3.connection import S3Connection
 
 def index(request):
-    return HttpResponse('test')
+    return render(request,'index.html',locals())
