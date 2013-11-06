@@ -183,6 +183,8 @@ if ENV == 'PRODUCTION':
 
     import dj_database_url
     DATABASES['default'] = dj_database_url.config()
+
+    SESSION_COOKIE_DOMAIN = '*.tweetimg.com'
 else:
     TWITTER_KEY = os.environ.get('TWITTER_KEY_LOCAL')
     TWITTER_SECRET = os.environ.get('TWITTER_SECRET_LOCAL')
