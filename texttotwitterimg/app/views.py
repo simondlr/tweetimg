@@ -9,6 +9,7 @@ from twython import Twython
 #from django.conf.settings import TWITTER_KEY,TWITTER_SECRET,TWITTER_CALLBACK
 from django.conf import settings
 from django.template import RequestContext
+import time
 
 def index(request):
     
@@ -32,12 +33,11 @@ def post(request):
     
     if 'text' in request.POST:
         #process form, create image and post to Twitter.
-        print request.POST['text']
-        
         import PIL
         from PIL import ImageFont
         from PIL import Image
         from PIL import ImageDraw
+        import StringIO
         import textwrap
         import os
         SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
@@ -50,7 +50,19 @@ def post(request):
         for line in textwrap.wrap(request.POST['text'],50):
             draw.text((margin, offset),line,(0,0,0),font=font)
             offset += font.getsize(line)[1]
-        img.save("temp.png")
+
+        file_name = "%s/temp%s.png" % (SITE_ROOT,time.time())
+        #img.save("temp%s.png" % time.time())
+        #image_io = StringIO.StringIO()
+        #img.save(image_io,format='PNG')
+        img.save(file_name)
+        #image_io.seek(0)
+
+        photo = open(file_name, 'rb')
+
+        t_api = Twython(settings.TWITTER_KEY,settings.TWITTER_SECRET,request.session['OAUTH_TOKEN'],request.session['OAUTH_TOKEN_SECRET'])
+        t_api.update_status_with_media(media=photo,status='')
+
         return render(request,'post.html',locals())
     elif 'OAUTH_TOKEN' in request.session:
         #display form
