@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+Say more. Enter the text here (go crazy. Go over 140!) *current version strips text at 214px height. So about 5 times normal tweet limit. <br />
+<br />
+<form action="/post" method="post">
+{% csrf_token %}
+<input type='textfield' class="form-control" name='text' id='text' /><br />
+<button type='submit' class="btn btn-primary">Tweet text as an image.</button>
+</form>
+{% endblock %}

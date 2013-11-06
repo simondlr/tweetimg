@@ -171,6 +171,9 @@ if ENV == 'PRODUCTION':
     print 'prod'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_KEY')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET')
+    TWITTER_KEY = os.environ.get('TWITTER_KEY')
+    TWITTER_SECRET = os.environ.get('TWITTER_SECRET')
+    TWITTER_CALLBACK = os.environ.get('TWITTER_CALLBACK')
     AWS_PRELOAD_METADATA = True
     AWS_STORAGE_BUCKET_NAME = 'texttotwitterimg'
     STATIC_URL = 'https://s3.amazonaws.com/texttotwitterimg/'
@@ -181,6 +184,9 @@ if ENV == 'PRODUCTION':
     import dj_database_url
     DATABASES['default'] = dj_database_url.config()
 else:
+    TWITTER_KEY = os.environ.get('TWITTER_KEY_LOCAL')
+    TWITTER_SECRET = os.environ.get('TWITTER_SECRET_LOCAL')
+    TWITTER_CALLBACK = os.environ.get('TWITTER_CALLBACK_LOCAL')
     print 'local'
     STATIC_URL = "/static/"
     DEBUG = True

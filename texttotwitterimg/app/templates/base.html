@@ -3,12 +3,19 @@
 <head>
 {% load staticfiles %}
 <link rel='shortcut icon' href="{% static 'img/favicon.ico' %}" type='image/x-icon' />
-<title>Text-to-Twitter-img.</title>
+<title>Tweetimg: Tweet text as an image.</title>
 <link type='text/css' rel='stylesheet' href="{% static 'index.css' %}" />
+<link type='text/css' rel='stylesheet' href="{% static 'bootstrap.min.css' %}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+<div class='container'>
+<h2>Tweetimg  - Tweet text as an image.</h2>
 {% block content %}
 Init
 {% endblock %}
+<hr>
+<a href="/logout">Log out</a>:: Created by <a href="http://twitter.com/simondlr">@simondlr</a>. Fork this on Github. <a href="http://www.twimemachine.com">Easily read and search your old tweets.</a>
+</div>
 </body>
 </html>

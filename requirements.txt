@@ -6,4 +6,5 @@ twython==3.1.0
 dj-database-url==0.2.2
 django-storages==1.1.8
 boto==2.15.0
-psycopg2
+psycopg2==2.5.1
+PIL==1.1.7

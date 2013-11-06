@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'texttotwitterimg.views.home', name='home'),
     url(r'^/?$',views.index),
+    url(r'^logout/?$',views.logout),
+    url(r'^post/?$',views.post),
     # url(r'^texttotwitterimg/', include('texttotwitterimg.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
