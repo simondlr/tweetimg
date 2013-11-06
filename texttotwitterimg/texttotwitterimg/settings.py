@@ -150,15 +150,15 @@ LOGGING = {
             'class':'logging.StreamHandler',
             'stream': sys.stdout
         },
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
+        #'mail_admins': {
+        #    'level': 'ERROR',
+        #    'filters': ['require_debug_false'],
+        #    'class': 'django.utils.log.AdminEmailHandler'
+        #}
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins'],
+            'handlers': ['console'],
             'level': 'ERROR',
             'propagate': True,
         },
