@@ -181,6 +181,7 @@ if ENV == 'PRODUCTION':
     import dj_database_url
     DATABASES['default'] = dj_database_url.config()
 else:
+    print 'local'
     STATIC_URL = "/static/"
     DEBUG = True
     TEMPLATE_DEBUG = DEBUG
